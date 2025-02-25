@@ -1,16 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="background-image grid grid-cols-1 m-auto">
-        <div class="flex text-gray-100 pt-10">
+    <div class="background-image grid grid-cols-1 m-auto" style="background-image: url('{{ asset('images/F1LaravelBackground.jpeg') }}'); background-size: cover; background-position: center;">        <div class="flex text-gray-100 pt-10">
             <div class="m-auto pt-4 pb-16 sm:m-auto w-4/5 block text-center">
                 <h1 class="sm:text-white text-5xl uppercase font-bold text-shadow-md pb-14">
-                    Do you want to become a developer?
+                    Welcome to the Unofficial F1 Blog
                 </h1>
-                <a 
+                <a
                     href="/blog"
-                    class="text-center bg-gray-50 text-gray-700 py-2 px-4 font-bold text-xl uppercase">
-                    Read More
+                    class="text-center bg-red-600 text-white py-2 px-4 font-bold text-xl uppercase hover:bg-red-700 transition duration-300">
+                    Explore Posts
                 </a>
             </div>
         </div>
@@ -18,46 +17,46 @@
 
     <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
         <div>
-            <img src="https://cdn.pixabay.com/photo/2014/05/03/01/03/laptop-336704_960_720.jpg" width="700" alt="">
+            <img src="{{ asset('images/F1CloseUp.jpg') }}" width="700" alt="F1 Car">
         </div>
 
         <div class="m-auto sm:m-auto text-left w-4/5 block">
             <h2 class="text-3xl font-extrabold text-gray-600">
-                Struggling to be a better web developer?
+                The Thrill of Formula 1
             </h2>
-            
+
             <p class="py-8 text-gray-500 text-s">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus.
+                Formula 1 is the pinnacle of motorsport, where cutting-edge technology meets human skill. From the roar of the engines to the strategic pit stops, every moment is a blend of speed, precision, and excitement.
             </p>
 
             <p class="font-extrabold text-gray-600 text-s pb-9">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente magnam vero nostrum! Perferendis eos molestias porro vero. Vel alias.
+                Stay updated with the latest news, race results, and behind-the-scenes stories from the world of F1.
             </p>
 
-            <a 
+            <a
                 href="/blog"
-                class="uppercase bg-blue-500 text-gray-100 text-s font-extrabold py-3 px-8 rounded-3xl">
-                Find Out More
+                class="uppercase bg-red-600 text-white text-s font-extrabold py-3 px-8 rounded-3xl hover:bg-red-700 transition duration-300">
+                View Posts
             </a>
         </div>
     </div>
 
     <div class="text-center p-15 bg-black text-white">
-        <h2 class="text-2xl pb-5 text-l"> 
-            I'm an expert in...
+        <h2 class="text-2xl pb-5 text-l">
+            Did You Know?
         </h2>
 
         <span class="font-extrabold block text-4xl py-1">
-            Ux Design
+            F1 cars can go from 0 to 100 mph in under 2 seconds!
         </span>
         <span class="font-extrabold block text-4xl py-1">
-            Project Management
+            The average F1 driver loses 4 kg of weight during a race.
         </span>
         <span class="font-extrabold block text-4xl py-1">
-            Digital Strategy
+            F1 teams spend over $100 million annually on R&D.
         </span>
         <span class="font-extrabold block text-4xl py-1">
-            Backend Development
+            The fastest pit stop in history was 1.82 seconds!
         </span>
     </div>
 
@@ -71,30 +70,30 @@
         </h2>
 
         <p class="m-auto w-4/5 text-gray-500">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque exercitationem saepe enim veritatis, eos temporibus quaerat facere consectetur qui.
+            Catch up on the latest news, race reviews, and exclusive interviews from the world of Formula 1.
         </p>
     </div>
 
     <div class="sm:grid grid-cols-2 w-4/5 m-auto">
-        <div class="flex bg-yellow-700 text-gray-100 pt-10">
+        <div class="flex bg-red-600 text-gray-100 pt-10">
             <div class="m-auto pt-4 pb-16 sm:m-auto w-4/5 block">
                 <span class="uppercase text-xs">
-                    PHP
+                    Featured Story
                 </span>
 
                 <h3 class="text-xl font-bold py-10">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas necessitatibus dolorum error culpa laboriosam. Enim voluptas earum repudiandae consequuntur ad? Expedita labore aspernatur facilis quasi ex? Nemo hic placeat et?
+                    Inside the Garage: A Day with Mercedes-AMG Petronas
                 </h3>
 
-                <a 
-                    href=""
-                    class="uppercase bg-transparent border-2 border-gray-100 text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl">
-                    Find Out More
+                <a
+                    href="/blog/featured-story"
+                    class="uppercase bg-transparent border-2 border-gray-100 text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl hover:bg-white hover:text-red-600 transition duration-300">
+                    Read More
                 </a>
             </div>
         </div>
         <div>
-            <img src="https://cdn.pixabay.com/photo/2014/05/03/01/03/laptop-336704_960_720.jpg" alt="">
+            <img src="{{ asset('images/F1Garage.jpg') }}" alt="F1 Garage">
         </div>
     </div>
 @endsection
