@@ -65,18 +65,67 @@
         </div>
     </div>
 
-    <div class="text-center py-20 space-y-8"> <!-- Changed py-15 to py-20 and added space-y-8 -->
+    <!-- Updated Section 1: F1 Legends -->
+    <div class="text-center py-20 space-y-8 bg-gray-100"> <!-- Added background color -->
         <span class="uppercase text-sm text-gray-400 tracking-widest"> <!-- Added tracking-widest -->
-            Text
+            F1 Legends
         </span>
 
-        <h2 class="text-4xl font-bold">
-            Text
+        <h2 class="text-4xl font-bold text-gray-800">
+            Celebrating the Greatest Drivers
         </h2>
 
-        <p class="m-auto w-4/5 text-gray-500 text-lg max-w-2xl"> <!-- Added max-w-2xl -->
-            text
+        <p class="m-auto w-4/5 text-gray-600 text-lg max-w-2xl"> <!-- Added max-w-2xl -->
+            From Ayrton Senna's raw speed to Michael Schumacher's record-breaking dominance, Formula 1 has been shaped by legendary drivers. Explore their stories, rivalries, and unforgettable moments that defined the sport.
         </p>
+
+        <a
+            href="/blog"
+            class="inline-block uppercase bg-red-600 text-white text-lg font-extrabold py-3 px-8 rounded-3xl hover:bg-red-700 transition duration-300">
+            Learn More
+        </a>
+    </div>
+
+    <!-- Updated Section 2: F1 Technology -->
+    <div class="text-center py-20 space-y-8 bg-white"> <!-- Added background color -->
+        <span class="uppercase text-sm text-gray-400 tracking-widest"> <!-- Added tracking-widest -->
+            Innovation
+        </span>
+
+        <h2 class="text-4xl font-bold text-gray-800">
+            The Technology Behind F1
+        </h2>
+
+        <p class="m-auto w-4/5 text-gray-600 text-lg max-w-2xl"> <!-- Added max-w-2xl -->
+            Discover how F1 teams push the boundaries of engineering with hybrid power units, advanced aerodynamics, and cutting-edge materials. Learn how innovations on the track influence the cars we drive every day.
+        </p>
+
+        <a
+            href="/blog"
+            class="inline-block uppercase bg-red-600 text-white text-lg font-extrabold py-3 px-8 rounded-3xl hover:bg-red-700 transition duration-300">
+            Explore Technology
+        </a>
+    </div>
+
+    <!-- Updated Section 3: F1 Calendar -->
+    <div class="text-center py-20 space-y-8 bg-gray-100"> <!-- Added background color -->
+        <span class="uppercase text-sm text-gray-400 tracking-widest"> <!-- Added tracking-widest -->
+            Upcoming Races
+        </span>
+
+        <h2 class="text-4xl font-bold text-gray-800">
+            2023 F1 Calendar
+        </h2>
+
+        <p class="m-auto w-4/5 text-gray-600 text-lg max-w-2xl"> <!-- Added max-w-2xl -->
+            Don't miss a single race! Check out the full calendar for the 2023 season, including circuit details, race times, and key events. Mark your calendar and join us for the ultimate motorsport experience.
+        </p>
+
+        <a
+            href="/blog"
+            class="inline-block uppercase bg-red-600 text-white text-lg font-extrabold py-3 px-8 rounded-3xl hover:bg-red-700 transition duration-300">
+            View Calendar
+        </a>
     </div>
 
     <div class="sm:grid grid-cols-2 w-4/5 m-auto gap-12 py-20"> <!-- Added gap-12 and py-20 -->

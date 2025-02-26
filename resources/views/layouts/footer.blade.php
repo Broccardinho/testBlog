@@ -1,93 +1,107 @@
-<footer class="bg-gray-800 py-20 mt-20">
-    <div class="sm:grid grid-cols-3 w-4/5 pb-10 m-auto border-b-2 border-gray-700">
-        <div>
-            <h3 class="text-l sm:font-bold text-gray-100">
-                Pages
-            </h3>
-
-            <ul class="py-4 sm:text-s pt-4 text-gray-400">
-                <li class="pb-1">
-                    <a href="/">
+<footer class="bg-f1-black py-16 mt-20 border-t-4 border-f1-red">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-gray-700">
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-xl font-racing text-f1-red mb-6">
+                    Quick Links
+                </h3>
+                <ul class="space-y-3">
+                    <li>
+                        <a href="/" class text-gray-300 hover:text-f1-red transition duration-300">
                         Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog" class text-gray-300 hover:text-f1-red transition duration-300">
+                        Race Reports
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/drivers" class text-gray-300 hover:text-f1-red transition duration-300">
+                        Driver Standings
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/calendar" class text-gray-300 hover:text-f1-red transition duration-300">
+                        Season Calendar
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Categories -->
+            <div>
+                <h3 class="text-xl font-racing text-f1-red mb-6">
+                    Categories
+                </h3>
+                <ul class="space-y-3">
+                    <li>
+                        <a href="/blog?category=race-reports" class text-gray-300 hover:text-f1-red transition duration-300">
+                        Race Reports
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog?category=team-news" class text-gray-300 hover:text-f1-red transition duration-300">
+                        Team News
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog?category=tech-talk" class text-gray-300 hover:text-f1-red transition duration-300">
+                        Tech Talk
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog?category=interviews" class text-gray-300 hover:text-f1-red transition duration-300">
+                        Driver Interviews
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div>
+                <h3 class="text-xl font-racing text-f1-red mb-6">
+                    Follow Us
+                </h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-f1-red transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
                     </a>
-                </li>
-                <li class="pb-1">
-                    <a href="/blog">
-                        Blog
+                    <a href="#" class="text-gray-300 hover:text-f1-red transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/></svg>
                     </a>
-                </li>
-                <li class="pb-1">
-                    <a href="/login">
-                        Login
+                    <a href="#" class="text-gray-300 hover:text-f1-red transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
-                </li>
-                <li class="pb-1">
-                    <a href="/register">
-                        Register
-                    </a>
-                </li>
-            </ul>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div>
+                <h3 class="text-xl font-racing text-f1-red mb-6">
+                    Pit Lane Updates
+                </h3>
+                <p class="text-gray-300 mb-4">
+                    Subscribe for race weekend updates and exclusive content
+                </p>
+                <form class="flex gap-2">
+                    <input type="email" placeholder="Your email" class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:border-f1-red focus:ring-0">
+                    <button class="px-6 py-2 bg-f1-red text-white rounded-lg hover:bg-red-700 transition duration-300">
+                        Go
+                    </button>
+                </form>
+            </div>
         </div>
 
-        <div>
-            <h3 class="text-l sm:font-bold text-gray-100">
-                Find Us
-            </h3>
-
-            <ul class="py-4 sm:text-s pt-4 text-gray-400">
-                <li class="pb-1">
-                    <a href="/">
-                        What we do
-                    </a>
-                </li>
-                <li class="pb-1">
-                    <a href="/">
-                        Address
-                    </a>
-                </li>
-                <li class="pb-1">
-                    <a href="/">
-                        Phone
-                    </a>
-                </li>
-                <li class="pb-1">
-                    <a href="/">
-                        Contact
-                    </a>
-                </li>
-            </ul>
+        <!-- Copyright -->
+        <div class="text-center pt-8">
+            <p class="text-gray-400">
+                © {{ date('Y') }} Unofficial F1 Blog. Not affiliated with Formula 1®
+            </p>
+            <p class="text-gray-500 text-sm mt-2">
+                Engineered with <span class="text-f1-red">❤️</span> by Alexander Broccardo
+            </p>
         </div>
-
-        <div>
-            <h3 class="text-l sm:font-bold text-gray-100">
-                Latest posts
-            </h3>
-
-            <ul class="py-4 sm:text-s pt-4 text-gray-400">
-                <li class="pb-1">
-                    <a href="/">
-                        Why we love tech
-                    </a>
-                </li>
-                <li class="pb-1">
-                    <a href="/">
-                        Why we love design
-                    </a>
-                </li>
-                <li class="pb-1">
-                    <a href="/">
-                        Why to use Laravel
-                    </a>
-                </li>
-                <li class="pb-1">
-                    <a href="/">
-                        Why PHP is the best
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="container mx-auto text-center text-gray-300">
-        <p>&copy; {{ date('Y') }} Unofficial F1 Blog. All rights reserved.</p>
     </div>
 </footer>
