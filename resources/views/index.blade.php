@@ -86,23 +86,25 @@
 
     <!-- Content Sections with Consistent Spacing -->
     <div class="grid grid-cols-1 divide-y divide-gray-200">
-        <!-- History Section -->
-        <div class="text-center py-16 bg-gray-100">
-            <div class="space-y-6 w-4/5 mx-auto">
-                <span class="uppercase text-sm text-gray-400 tracking-widest">
-                    F1 History
-                </span>
-                <h2 class="text-4xl font-bold text-gray-800">
-                    Legendary Drivers
-                </h2>
-                <p class="text-gray-600 text-lg">
-                    Explore the stories of iconic drivers that shaped Formula 1
-                </p>
-                <a href="{{ route('history') }}"
-                   class="inline-block bg-red-600 text-white px-8 py-3 rounded-3xl hover:bg-red-700 transition duration-300">
-                    View History
-                </a>
-            </div>
+        <!-- Historical Legacy Section -->
+        <div class="text-center py-20 space-y-8 bg-gray-100">
+    <span class="uppercase text-sm text-gray-400 tracking-widest">
+        F1 Heritage
+    </span>
+
+            <h2 class="text-4xl font-bold text-gray-800">
+                Motorsport History Unveiled
+            </h2>
+
+            <p class="m-auto w-4/5 text-gray-600 text-lg max-w-2xl">
+                From iconic rivalries to groundbreaking innovations, explore seven decades of Formula 1's evolution.
+                Relive legendary moments that shaped the sport we know today.
+            </p>
+
+            <a href="{{ route('history') }}"
+               class="inline-block uppercase bg-red-600 text-white text-lg font-extrabold py-3 px-8 rounded-3xl hover:bg-red-700 transition duration-300">
+                Explore History
+            </a>
         </div>
 
         <!-- Teams Section -->
