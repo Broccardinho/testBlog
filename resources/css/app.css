@@ -1,15 +1,73 @@
+/* resources/css/app.css */
+
 @import "tailwindcss/base";
-
 @import "tailwindcss/components";
-
 @import "tailwindcss/utilities";
 
-.background-image
-{
-    background-image: url('images/F1LaravelBackground.jpeg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    height: 600px;
+/* Custom F1 Theme Styles */
+@layer components {
+    .background-image {
+        background-image: url('images/F1LaravelBackground.jpeg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        height: 600px;
+    }
+
+    /* Add more custom components here */
+    .font-racing {
+        font-family: 'Racing Sans One', cursive;
+        letter-spacing: 1.5px;
+    }
+
+    .track-pattern {
+        background: repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(255, 255, 255, 0.1) 10px,
+            rgba(255, 255, 255, 0.1) 20px
+        );
+    }
+}
+
+@layer utilities {
+    /* Add custom utilities here */
+    .text-shadow-md {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    .border-track {
+        border-image: linear-gradient(45deg, var(--f1-red), var(--track-gray)) 1;
+    }
+
+    .hover-scale {
+        transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+        transform: scale(1.02);
+    }
+}
+
+/* Custom CSS outside of Tailwind layers */
+:root {
+    --f1-red: #e10600;
+    --f1-black: #000000;
+    --f1-white: #ffffff;
+    --track-gray: #333333;
+}
+
+/* Additional global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--f1-black);
+    color: var(--f1-white);
+}
+
+/* Example of a custom animation */
+@keyframes track-move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50%, 50%); }
 }

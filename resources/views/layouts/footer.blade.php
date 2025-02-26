@@ -87,7 +87,7 @@
             </ul>
         </div>
     </div>
-    <p class="w-25 w-4/5 pb-3 m-auto text-xs text-gray-100 pt-6">
-        Copyright 2017-2021 Code With Dary. All Rights Reserved
-    </p>
+    <div class="container mx-auto text-center text-gray-300">
+        <p>&copy; {{ date('Y') }} Unofficial F1 Blog. All rights reserved.</p>
+    </div>
 </footer>
