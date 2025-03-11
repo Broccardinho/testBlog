@@ -1,62 +1,67 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="w-4/5 m-auto text-left">
-    <div class="py-15">
-        <h1 class="text-6xl">
-            Create Post
-        </h1>
+    <div class="w-4/5 mx-auto">
+        {{-- Centered Title Section --}}
+        <div class="py-12 text-center border-b-2 border-f1-red"> {{-- Changed to text-center --}}
+            <h1 class="text-6xl font-racing text-f1-red mb-4">
+                Create Post
+            </h1>
+            <p class="font-teko text-xl text-f1-black">
+                Share your racing insights with the community
+            </p>
+        </div>
     </div>
-</div>
- 
-@if ($errors->any())
-    <div class="w-4/5 m-auto">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li class="w-1/5 mb-4 text-gray-50 bg-red-700 rounded-2xl py-4">
-                    {{ $error }}
-                </li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 
-<div class="w-4/5 m-auto pt-20">
-    <form 
-        action="/blog"
-        method="POST"
-        enctype="multipart/form-data">
-        @csrf
+    @if ($errors->any())
+        <div class="w-4/5 mx-auto mt-8">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li class="w-1/5 mb-4 text-gray-50 bg-red-700 rounded-2xl py-4 text-center font-teko">
+                        {{ $error }}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-        <input 
-            type="text"
-            name="title"
-            placeholder="Title..."
-            class="bg-transparent block border-b-2 w-full h-20 text-6xl outline-none">
+    {{-- Form Container --}}
+    <div class="w-4/5 mx-auto pt-16 bg-white rounded-lg shadow-2xl p-10 mt-12">
+        <form
+            action="/blog"
+            method="POST"
+            enctype="multipart/form-data">
+            @csrf
 
-        <textarea 
-            name="description"
-            placeholder="Description..."
-            class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none"></textarea>
+            <input
+                type="text"
+                name="title"
+                placeholder="Title..."
+                class="bg-transparent block border-b-2 w-full h-16 text-4xl outline-none text-f1-black font-racing focus:border-f1-red mb-8">
 
-        <div class="bg-grey-lighter pt-15">
-            <label class="w-44 flex flex-col items-center px-2 py-3 bg-white-rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer">
-                <span class="mt-2 text-base leading-normal">
+            <textarea
+                name="description"
+                placeholder="Description..."
+                class="bg-transparent block border-b-2 w-full h-40 text-xl outline-none text-f1-black font-teko focus:border-f1-red mb-8 resize-none"></textarea>
+
+            <div class="pt-10">
+                <label class="w-44 flex flex-col items-center px-2 py-3 bg-track-gray rounded-lg shadow-lg tracking-wide uppercase border border-f1-red cursor-pointer hover:bg-f1-red hover:text-white transition-colors">
+                <span class="mt-2 text-base leading-normal font-teko">
                     Select a file
                 </span>
-                <input 
-                    type="file"
-                    name="image"
-                    class="hidden">
-            </label>
-        </div>
+                    <input
+                        type="file"
+                        name="image"
+                        class="hidden">
+                </label>
+            </div>
 
-        <button    
-            type="submit"
-            class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
-            Submit Post
-        </button>
-    </form>
-</div>
+            <button
+                type="submit"
+                class="uppercase mt-10 bg-f1-red text-white text-lg font-racing py-3 px-6 rounded-3xl hover:bg-red-800 transition-colors">
+                Submit Post
+            </button>
+        </form>
+    </div>
 
 @endsection
