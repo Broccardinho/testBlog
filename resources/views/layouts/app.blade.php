@@ -32,6 +32,7 @@
                 <a class="no-underline hover:text-f1-red transition duration-300" href="/">Home</a>
                 <a class="no-underline hover:text-f1-red transition duration-300" href="/blog">Blog</a>
                 <a class="no-underline hover:text-f1-red transition duration-300" href="{{ route('about') }}">About</a> <!-- Add this line -->
+                <a class="no-underline hover:text-f1-red transition duration-300" href="{{ route('contact') }}">Contact</a>
                 @guest
                     <a class="no-underline hover:text-f1-red transition duration-300" href="{{ route('login') }}">{{ __('Login') }}</a>
                     @if (Route::has('register'))
