@@ -84,3 +84,7 @@ Route::get('/teams', function () {
         'driverImageMap' => $driverImageMap
     ]);
 })->name('teams');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
