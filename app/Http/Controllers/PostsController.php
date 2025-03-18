@@ -72,8 +72,21 @@ class PostsController extends Controller
      */
     public function show($slug)
     {
-        return view('blog.show')
-            ->with('post', Post::where('slug', $slug)->first());
+        // Fetch the current post
+        $post = Post::where('slug', $slug)->firstOrFail();
+
+        // Fetch related posts (e.g., posts by the same author)
+        $relatedPosts = Post::where('user_id', $post->user_id)
+            ->where('id', '!=', $post->id) // Exclude the current post
+            ->inRandomOrder() // Randomize the order
+            ->limit(3) // Limit to 3 posts
+            ->get();
+
+        // Pass the post and related posts to the view
+        return view('blog.show', [
+            'post' => $post,
+            'relatedPosts' => $relatedPosts,
+        ]);
     }
 
     /**

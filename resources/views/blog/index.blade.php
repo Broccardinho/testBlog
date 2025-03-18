@@ -9,9 +9,10 @@
         </div>
     </div>
 
+    <!-- Success Message Pop-Up -->
     @if (session()->has('message'))
         <div class="w-4/5 m-auto mt-10 pl-2">
-            <p class="w-2/6 mb-4 text-gray-50 bg-green-500 rounded-2xl py-4">
+            <p class="w-2/6 mb-4 text-gray-50 bg-green-500 rounded-2xl py-4 text-center">
                 {{ session()->get('message') }}
             </p>
         </div>
@@ -21,62 +22,77 @@
         <div class="pt-15 w-4/5 m-auto">
             <a
                 href="/blog/create"
-                class="bg-blue-500 uppercase bg-transparent text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl">
+                class="bg-red-600 uppercase text-white text-xs font-extrabold py-3 px-5 rounded-3xl hover:bg-red-700 transition duration-300">
                 Create post
             </a>
         </div>
     @endif
 
-    @foreach ($posts as $post)
-        <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
-            <div>
-                <img src="{{ asset('images/' . $post->image_path) }}" alt="">
+    <!-- Blog Posts Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-4/5 mx-auto py-20">
+        @foreach ($posts as $post)
+            <!-- Blog Post Card -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border-2 border-gray-200">
+                <!-- Title (Header) -->
+                <div class="p-6 bg-gradient-to-r from-red-600 to-red-800">
+                    <h2 class="text-2xl font-bold text-white">
+                        {{ $post->title }}
+                    </h2>
+                    <span class="text-sm text-gray-200">
+                        By <span class="font-bold">{{ $post->user->name }}</span>,
+                        Created on {{ date('jS M Y', strtotime($post->updated_at)) }}
+                    </span>
+                </div>
+
+                <!-- Image (Body) -->
+                <div class="w-full h-64 overflow-hidden">
+                    <img
+                        src="{{ asset('images/' . $post->image_path) }}"
+                        alt="{{ $post->title }}"
+                        class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
+                    >
+                </div>
+
+                <!-- Description (Footer) -->
+                <div class="p-6">
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        {{ Str::limit($post->description, 150) }} <!-- Limit description to 150 characters -->
+                    </p>
+
+                    <!-- Buttons -->
+                    <div class="mt-6 flex justify-between items-center">
+                        <a
+                            href="/blog/{{ $post->slug }}"
+                            class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition duration-300"
+                        >
+                            Keep Reading
+                        </a>
+
+                        @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
+                            <div class="flex space-x-4">
+                                <a
+                                    href="/blog/{{ $post->slug }}/edit"
+                                    class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition duration-300"
+                                >
+                                    Edit
+                                </a>
+                                <form action="/blog/{{ $post->slug }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button
+                                        type="submit"
+                                        class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition duration-300"
+                                    >
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        @endif
+                    </div>
+                </div>
             </div>
-            <div>
-                <h2 class="text-gray-700 font-bold text-5xl pb-4">
-                    {{ $post->title }}
-                </h2>
-
-                <span class="text-gray-500">
-                By <span class="font-bold italic text-gray-800">{{ $post->user->name }}</span>, Created on {{ date('jS M Y', strtotime($post->updated_at)) }}
-            </span>
-
-                <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light">
-                    {{ $post->description }}
-                </p>
-
-                <a href="/blog/{{ $post->slug }}" class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
-                    Keep Reading
-                </a>
-
-                @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
-                    <span class="float-right">
-                    <a
-                        href="/blog/{{ $post->slug }}/edit"
-                        class="text-gray-700 italic hover:text-gray-900 pb-1 border-b-2">
-                        Edit
-                    </a>
-                </span>
-
-                    <span class="float-right">
-                     <form
-                         action="/blog/{{ $post->slug }}"
-                         method="POST">
-                        @csrf
-                         @method('delete')
-
-                        <button
-                            class="text-red-500 pr-3"
-                            type="submit">
-                            Delete
-                        </button>
-
-                    </form>
-                </span>
-                @endif
-            </div>
-        </div>
-    @endforeach
+        @endforeach
+    </div>
 
     <!-- CTA Section -->
     <div class="w-4/5 m-auto text-center mt-20 py-12 border-t border-gray-200">
@@ -88,10 +104,9 @@
         </p>
         <a
             href="{{ route('about') }}"
-            class="bg-f1-red uppercase text-gray-100 text-lg font-extrabold py-3 px-8 rounded-3xl hover:bg-f1-dark-red transition duration-300"
+            class="bg-red-600 uppercase text-white text-lg font-extrabold py-3 px-8 rounded-3xl hover:bg-red-700 transition duration-300"
         >
             About Us
         </a>
     </div>
-
 @endsection
