@@ -159,9 +159,12 @@
                 </h3>
 
                 <!-- Non-clickable button -->
-                <span class="inline-block uppercase bg-transparent border-2 border-gray-100 text-gray-100 text-sm font-extrabold py-3 px-8 rounded-3xl cursor-not-allowed">
-                    Vote Now (Coming Soon)
-                </span>
+{{--                <span class="inline-block uppercase bg-transparent border-2 border-gray-100 text-gray-100 text-sm font-extrabold py-3 px-8 rounded-3xl cursor-not-allowed">--}}
+{{--                    Vote Now (Coming Soon)--}}
+{{--                </span>--}}
+                <a href="{{ route('poll') }}" class="inline-block uppercase bg-transparent border-2 border-gray-100 text-gray-100 text-sm font-extrabold py-3 px-8 rounded-3xl hover:bg-red-600 hover:border-red-600 transition duration-300">
+                    Vote Now
+                </a>
             </div>
         </div>
         <div>
