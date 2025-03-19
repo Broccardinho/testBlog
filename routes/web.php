@@ -43,7 +43,7 @@ Route::get('/teams', function () {
         [
             'name' => 'Haas',
             'drivers' => ['Esteban Ocon', 'Oliver Bearman'],
-            'color' => '#FFFFFF'
+            'color' => '#1E1E1E'
         ],
         [
             'name' => 'Kick Sauber',
@@ -115,7 +115,7 @@ Route::get('/poll', function () {
         [
             'name' => 'Haas',
             'drivers' => ['Esteban Ocon', 'Oliver Bearman'],
-            'color' => '#FFFFFF'
+            'color' => '#1E1E1E'
         ],
         [
             'name' => 'Kick Sauber',
@@ -186,3 +186,7 @@ Route::get('/poll', function () {
 
     return view('poll', compact('drivers'));
 })->name('poll');
+
+use App\Http\Controllers\VoteController;
+
+Route::post('/vote', [VoteController::class, 'store'])->name('vote.store');
