@@ -92,7 +92,7 @@ Route::get('/about', function () {
 
 // Contact Routes (Updated)
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
-Route::post('/contact', [ContactController::class, 'send'])->name('contact.send'); // Add this line
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
 // poll
 Route::get('/poll', function () {
@@ -149,7 +149,6 @@ Route::get('/poll', function () {
         ]
     ];
 
-    // Map driver names to their full-body image filenames
     $driverImageMap = [
         'Pierre Gasly' => 'pierre_gasly_fullbody.jpg',
         'Jack Doohan' => 'jack_doohan_fullbody.jpg',
@@ -173,7 +172,6 @@ Route::get('/poll', function () {
         'Carlos Sainz' => 'carlos_sainz_fullbody.jpg'
     ];
 
-    // Prepare the drivers array for the poll page
     $drivers = [];
     foreach ($teams as $team) {
         foreach ($team['drivers'] as $driver) {
@@ -181,7 +179,7 @@ Route::get('/poll', function () {
                 'name' => $driver,
                 'team' => $team['name'],
                 'team_color' => $team['color'],
-                'image' => $driverImageMap[$driver] ?? 'default_driver_fullbody.jpg' // Fallback image
+                'image' => $driverImageMap[$driver] ?? 'default_driver_fullbody.jpg'
             ];
         }
     }
