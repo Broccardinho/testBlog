@@ -16,6 +16,7 @@
     </div>
 
     <!-- Thrill of F1 Section -->
+    <!-- Thrill of F1 Section -->
     <div class="sm:grid grid-cols-2 gap-16 w-4/5 mx-auto py-16 border-b border-gray-200">
         <div class="mb-8 sm:mb-0">
             <img src="{{ asset('images/F1CloseUp.jpg') }}" alt="F1 Car" class="rounded-lg shadow-xl">
@@ -25,10 +26,10 @@
                 The Thrill of Formula 1
             </h2>
             <div class="space-y-4">
-                <p class="text-gray-500 text-base leading-relaxed">
+                <p class="text-gray-500 text-lg leading-relaxed">
                     Formula 1 is the pinnacle of motorsport, where cutting-edge technology meets human skill...
                 </p>
-                <p class="font-extrabold text-gray-600 text-base">
+                <p class="font-extrabold text-gray-600 text-lg leading-relaxed">
                     Stay updated with the latest news, race results, and behind-the-scenes stories...
                 </p>
             </div>
