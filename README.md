@@ -1,47 +1,25 @@
-## Laravel 8 Complete Blog
+# Unofficial F1 Blog
 
-This repository is linked to [this youtube video](https://www.youtube.com/watch?v=HKJDLXsTr8A&t=4710s) where I show you how to create a complete blog in Laravel 8 using best practices.
+## Description
+The **Unofficial F1 Blog** is a Laravel 8-based blog post website designed for Formula 1 fans worldwide. It provides the latest news, facts, and insights about Formula 1, including race calendars, driver lineups, and the history of F1. Users can interact with the blog by voting in polls, reading posts, and submitting inquiries through a contact form. Authenticated users can create, edit, and delete blog posts.
 
-•	Author: Alex Broccardo
+## Features
+- **Blog Posts**: Read the latest F1 news and insights.
+- **F1 Facts**: Discover interesting facts about Formula 1.
+- **Race Calendar**: View the schedule for all races in the current year.
+- **Driver Lineup**: Explore the current lineup of F1 drivers.
+- **F1 History**: Learn about the rich history of Formula 1.
+- **Poll System**: Vote for your "Driver of the Day."
+- **User Authentication**: Register and log in to access additional features.
+- **Contact Form**: Submit inquiries, with emails sent to Mailhog for testing.
+- **About Page**: Learn more about the blog and its purpose.
+- **Related Posts**: Discover related articles when reading a blog post.
+- **Admin Features** (for logged-in users):
+    - Create, edit, and delete blog posts.
 
-## Requirements
-•	PHP 7.3 or higher <br>
-•	Node 12.13.0 or higher <br>
-
-## Usage <br>
-Setting up your development environment on your local machine: <br>
-```
-git clone git@github.com:codewithdary/laravel-8-complete-blog.git
-cd laravel-8-complete-blog
-cp .env.example .env
-composer install
-php artisan key:generate
-php artisan cache:clear && php artisan config:clear
-php artisan serve
-```
-
-## Before starting <br>
-Create a database <br>
-```
-mysql
-create database laravelblog;
-exit;
-```
-
-Setup your database credentials in the .env file <br>
-```
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=laravelblog
-DB_USERNAME={USERNAME}
-DB_PASSWORD={PASSWORD}
-```
-
-Migrate the tables
-```
-php artisan migrate
-```
-
-## Contributing
-Do not hesitate to contribute to the project by adapting or adding features ! Bug reports or pull requests are welcome.
+## Technologies Used
+- **Backend**: Laravel 8 (PHP)
+- **Frontend**: Blade templating engine
+- **Database**: MySQL (or any database supported by Laravel)
+- **Email Testing**: Mailhog
+- **Development Server**: PHP Artisan Serve
