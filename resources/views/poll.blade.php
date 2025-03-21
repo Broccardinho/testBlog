@@ -58,10 +58,6 @@
     <div id="selectedDriverModal" class="fixed inset-0 flex items-center justify-center hidden z-50">
         <div class="bg-white rounded-xl shadow-lg overflow-hidden relative flex flex-col"
              style="height: 500px; width: 350px;">
-            <!-- X Button -->
-            <button id="closeModalButton" class="absolute top-2 right-2 text-2xl font-bold hover:opacity-75 transition-opacity"
-                    style="color: inherit;">&times;</button>
-
             <!-- Driver Photo -->
             <div class="h-64 overflow-hidden relative flex-shrink-0">
                 <img
@@ -86,6 +82,14 @@
             <!-- Confirmation Message -->
             <div class="p-4 flex-shrink-0 text-center">
                 <p class="text-lg font-bold text-green-600">Your Driver of the Day!</p>
+            </div>
+
+            <!-- Close Button -->
+            <div class="p-4 flex-shrink-0">
+                <button id="closeModalButton" class="w-full text-white px-4 py-2 rounded-full transition duration-300"
+                        style="background-color: inherit;">
+                    Close
+                </button>
             </div>
         </div>
     </div>
@@ -135,7 +139,16 @@
                             modalCard.style.border = `4px solid ${teamColor}`;
                             modalTriangle.style.backgroundColor = teamColor;
                             modalNameCard.style.borderColor = teamColor;
-                            closeModalButton.style.color = teamColor;
+
+                            // Set the close button's background color
+                            closeModalButton.style.backgroundColor = teamColor;
+                            closeModalButton.style.color = '#ffffff'; // Ensure text is white
+                            closeModalButton.addEventListener('mouseenter', () => {
+                                closeModalButton.style.backgroundColor = `${teamColor}CC`; // Slightly transparent on hover
+                            });
+                            closeModalButton.addEventListener('mouseleave', () => {
+                                closeModalButton.style.backgroundColor = teamColor; // Reset on hover out
+                            });
 
                             // Submit the vote via AJAX
                             const response = await fetch('{{ route('vote.store') }}', {
@@ -160,10 +173,7 @@
                     });
                 });
 
-                // Close the modal when clicking outside
-                overlay.addEventListener('click', closeModal);
-
-                // Close the modal when clicking the X button
+                // Close the modal when clicking the Close button
                 closeModalButton.addEventListener('click', closeModal);
             });
         </script>
