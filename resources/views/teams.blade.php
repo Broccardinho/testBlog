@@ -21,9 +21,8 @@
                                 <h2 class="text-2xl font-bold text-gray-900 mb-2">
                                     {{ $team['name'] }}
                                 </h2>
-                                <div class="h-1 w-16 bg-gray-200 mx-auto rounded-full"></div>
+                                <div class="h-px mt-2 w-fit" style="background-color: {{ $team['color'] }};"></div>
                             </div>
-
                             <div class="space-y-6">
                                 @foreach($team['drivers'] as $driver)
                                     <div class="flex items-center space-x-4">
