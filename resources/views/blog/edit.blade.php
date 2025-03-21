@@ -1,19 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="w-4/5 m-auto text-left">
-        <div class="py-15">
-            <h1 class="text-6xl">
+    <div class="w-4/5 mx-auto">
+        {{-- Centered Title Section --}}
+        <div class="py-12 text-center border-b-2 border-f1-red">
+            <h1 class="text-6xl font-racing text-f1-red mb-4">
                 Update Post
             </h1>
+            <p class="font-teko text-xl text-f1-black">
+                Revise your racing insights and share with the community
+            </p>
         </div>
     </div>
 
     @if ($errors->any())
-        <div class="w-4/5 m-auto">
+        <div class="w-4/5 mx-auto mt-8">
             <ul>
                 @foreach ($errors->all() as $error)
-                    <li class="w-1/5 mb-4 text-gray-50 bg-red-700 rounded-2xl py-4">
+                    <li class="w-1/5 mb-4 text-gray-50 bg-red-700 rounded-2xl py-4 text-center font-teko">
                         {{ $error }}
                     </li>
                 @endforeach
@@ -21,7 +25,8 @@
         </div>
     @endif
 
-    <div class="w-4/5 m-auto pt-20">
+    {{-- Form Container --}}
+    <div class="w-4/5 mx-auto pt-16 bg-white rounded-lg shadow-2xl p-10 mt-12">
         <form
             action="/blog/{{ $post->slug }}"
             method="POST"
@@ -33,70 +38,71 @@
                 type="text"
                 name="title"
                 value="{{ $post->title }}"
-                class="bg-transparent block border-b-2 w-full h-20 text-6xl outline-none">
+                class="bg-transparent block border-b-2 w-full h-16 text-4xl outline-none text-f1-black font-racing focus:border-f1-red mb-8"
+                placeholder="Title...">
 
             <textarea
                 name="description"
                 placeholder="Description..."
-                class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none">{{ $post->description }}</textarea>
+                class="bg-transparent block border-b-2 w-full h-40 text-xl outline-none text-f1-black font-teko focus:border-f1-red mb-8 resize-none">{{ $post->description }}</textarea>
 
-            <!-- Image Upload Field -->
+            {{-- Image Upload Field --}}
             <div class="my-10">
-                <label class="block text-xl font-bold mb-4">
+                <label class="block text-xl font-bold mb-4 font-teko text-f1-black">
                     Update Image (Optional)
                 </label>
                 <div class="flex items-center space-x-4">
-                    <!-- File Input -->
-                    <label class="flex flex-col items-center px-4 py-2 bg-blue-500 text-white rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-600 hover:border-blue-600 transition-colors">
-                        <span class="text-base leading-normal">Choose File</span>
+                    {{-- File Input --}}
+                    <label class="flex flex-col items-center px-4 py-2 bg-f1-red text-white rounded-lg shadow-lg tracking-wide uppercase border border-f1-red cursor-pointer hover:bg-red-800 hover:border-red-800 transition-colors">
+                        <span class="text-base leading-normal font-teko">Choose File</span>
                         <input
                             type="file"
                             name="image"
                             class="hidden">
                     </label>
-                    <!-- Display File Name -->
-                    <span id="file-name" class="text-lg text-gray-700">No file chosen</span>
+                    {{-- Display File Name --}}
+                    <span id="file-name" class="text-lg text-f1-black font-teko">No file chosen</span>
                 </div>
             </div>
 
-            <!-- Display Current Image -->
+            {{-- Display Current Image --}}
             @if ($post->image_path)
                 <div class="my-10">
-                    <label class="block text-xl font-bold mb-4">
+                    <label class="block text-xl font-bold mb-4 font-teko text-f1-black">
                         Current Image
                     </label>
                     <img
                         src="{{ asset('images/' . $post->image_path) }}"
                         alt="{{ $post->title }}"
-                        class="w-1/2 rounded-lg shadow-lg">
+                        class="w-1/2 rounded-lg shadow-lg border-2 border-f1-red">
                 </div>
 
-                <!-- Delete Current Image Checkbox -->
+                {{-- Delete Current Image Checkbox --}}
                 <div class="my-10">
                     <label class="flex items-center space-x-2">
                         <input
                             type="checkbox"
                             name="delete_image"
-                            class="form-checkbox h-5 w-5 text-blue-600 rounded">
-                        <span class="text-lg text-gray-700">Delete Current Image</span>
+                            class="form-checkbox h-5 w-5 text-f1-red rounded focus:ring-f1-red">
+                        <span class="text-lg text-f1-black font-teko">Delete Current Image</span>
                     </label>
                 </div>
             @endif
 
+            {{-- Submit Button --}}
             <button
                 type="submit"
-                class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl hover:bg-blue-600 transition-colors">
+                class="uppercase mt-10 bg-f1-red text-white text-lg font-racing py-3 px-6 rounded-3xl hover:bg-red-800 transition-colors">
                 Submit Post
             </button>
         </form>
     </div>
 
-    <!-- JavaScript to Display File Name -->
+    {{-- JavaScript to Display File Name --}}
     <script>
         document.querySelector('input[name="image"]').addEventListener('change', function (e) {
             const fileName = e.target.files[0] ? e.target.files[0].name : 'No file chosen';
             document.getElementById('file-name').textContent = fileName;
         });
     </script>
-
 @endsection
