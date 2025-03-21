@@ -40,28 +40,46 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // app/Http/Controllers/PostsController.php
+    // app/Http/Controllers/PostsController.php
     public function store(Request $request)
     {
+        // Validate the request
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'required|mimes:jpg,png,jpeg|max:5048'
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
         ]);
 
-        $newImageName = uniqid() . '-' . $request->title . '.' . $request->image->extension();
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $newImageName = uniqid() . '-' . str_replace(' ', '-', $request->title) . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $newImageName);
+        } else {
+            return redirect()->back()->with('error', 'Image upload failed.');
+        }
 
-        $request->image->move(public_path('images'), $newImageName);
+        // Generate a unique slug
+        $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
+        $uniqueSlug = $slug;
+        $counter = 1;
 
+        // Ensure the slug is unique
+        while (Post::where('slug', $uniqueSlug)->exists()) {
+            $uniqueSlug = $slug . '-' . $counter;
+            $counter++;
+        }
+
+        // Create the post
         Post::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            'slug' => SlugService::createSlug(Post::class, 'slug', $request->title),
+            'slug' => $uniqueSlug,
             'image_path' => $newImageName,
-            'user_id' => auth()->user()->id
+            'user_id' => auth()->user()->id,
         ]);
 
-        return redirect('/blog')
-            ->with('message', 'Your post has been added!');
+        return redirect('/blog')->with('message', 'Your post has been added!');
     }
 
     /**

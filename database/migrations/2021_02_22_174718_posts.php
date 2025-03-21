@@ -11,11 +11,12 @@ class Posts extends Migration
      *
      * @return void
      */
+    // database/migrations/xxxx_xx_xx_create_posts_table.php
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table){
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('slug');
+            $table->string('slug')->unique(); // Add unique constraint
             $table->string('title');
             $table->longText('description');
             $table->string('image_path');
