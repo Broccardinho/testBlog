@@ -48,7 +48,8 @@ class PostsController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
+            'image' => 'nullable|mimes:jpg,png,jpeg|max:10048', // Increased size limit to 10MB
+            'delete_image' => 'nullable|boolean',
         ]);
 
         // Handle image upload
@@ -128,21 +129,49 @@ class PostsController extends Controller
      */
     public function update(Request $request, $slug)
     {
+        // Validate the request
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'nullable|mimes:jpg,png,jpeg|max:5048', // Image is optional
+            'delete_image' => 'nullable|boolean', // Checkbox for deleting the image
         ]);
 
-        Post::where('slug', $slug)
-            ->update([
-                'title' => $request->input('title'),
-                'description' => $request->input('description'),
-                'slug' => SlugService::createSlug(Post::class, 'slug', $request->title),
-                'user_id' => auth()->user()->id
-            ]);
+        // Find the post
+        $post = Post::where('slug', $slug)->firstOrFail();
 
-        return redirect('/blog')
-            ->with('message', 'Your post has been updated!');
+        // Handle image deletion if the checkbox is checked
+        if ($request->has('delete_image') && $request->delete_image) {
+            // Delete the old image if it exists
+            if ($post->image_path && file_exists(public_path('images/' . $post->image_path))) {
+                unlink(public_path('images/' . $post->image_path));
+            }
+            $post->image_path = null; // Remove the image path from the database
+        }
+
+        // Handle image upload if a new image is provided
+        if ($request->hasFile('image')) {
+            // Delete the old image if it exists
+            if ($post->image_path && file_exists(public_path('images/' . $post->image_path))) {
+                unlink(public_path('images/' . $post->image_path));
+            }
+
+            // Upload the new image
+            $newImageName = uniqid() . '-' . str_replace(' ', '-', $request->title) . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $newImageName);
+            $post->image_path = $newImageName;
+        }
+
+        // Update the post
+        $post->update([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'slug' => SlugService::createSlug(Post::class, 'slug', $request->title),
+            'image_path' => $post->image_path, // Keep the existing image if no new image is uploaded
+            'user_id' => auth()->user()->id,
+        ]);
+
+        return redirect('/blog')->with('message', 'Your post has been updated!');
     }
 
     /**
