@@ -8,23 +8,23 @@
                 </h3>
                 <ul class="space-y-3">
                     <li>
-                        <a href="/" class text-gray-300 hover:text-f1-red transition duration-300">
-                        Home
+                        <a href="/" class="text-gray-300 hover:text-f1-red transition duration-300">
+                            Home
                         </a>
                     </li>
                     <li>
-                        <a href="/blog" class text-gray-300 hover:text-f1-red transition duration-300">
-                        Race Reports
+                        <a href="/blog" class="text-gray-300 hover:text-f1-red transition duration-300">
+                            Blog
                         </a>
                     </li>
                     <li>
-                        <a href="/drivers" class text-gray-300 hover:text-f1-red transition duration-300">
-                        Driver Standings
+                        <a href="{{ route('about') }}" class="text-gray-300 hover:text-f1-red transition duration-300">
+                            About
                         </a>
                     </li>
                     <li>
-                        <a href="/calendar" class text-gray-300 hover:text-f1-red transition duration-300">
-                        Season Calendar
+                        <a href="{{ route('contact') }}" class="text-gray-300 hover:text-f1-red transition duration-300">
+                            Contact
                         </a>
                     </li>
                 </ul>
@@ -37,23 +37,23 @@
                 </h3>
                 <ul class="space-y-3">
                     <li>
-                        <a href="/blog?category=race-reports" class text-gray-300 hover:text-f1-red transition duration-300">
-                        Race Reports
+                        <a href="/blog?category=race-reports" class="text-gray-300 hover:text-f1-red transition duration-300">
+                            Race Reports
                         </a>
                     </li>
                     <li>
-                        <a href="/blog?category=team-news" class text-gray-300 hover:text-f1-red transition duration-300">
-                        Team News
+                        <a href="/blog?category=team-news" class="text-gray-300 hover:text-f1-red transition duration-300">
+                            Team News
                         </a>
                     </li>
                     <li>
-                        <a href="/blog?category=tech-talk" class text-gray-300 hover:text-f1-red transition duration-300">
-                        Tech Talk
+                        <a href="/blog?category=tech-talk" class="text-gray-300 hover:text-f1-red transition duration-300">
+                            Tech Talk
                         </a>
                     </li>
                     <li>
-                        <a href="/blog?category=interviews" class text-gray-300 hover:text-f1-red transition duration-300">
-                        Driver Interviews
+                        <a href="/blog?category=interviews" class="text-gray-300 hover:text-f1-red transition duration-300">
+                            Driver Interviews
                         </a>
                     </li>
                 </ul>
